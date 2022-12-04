@@ -144,7 +144,7 @@ int  main(int argc, char const *argv[]) {
 
   for (int i=0; i<nz; i++)
   {
-      fscanf(f, "%d %d %lg\n", &I[i], &J[i] &val[i]);
+      fscanf(f, "%d %d %lg\n", &I[i], &J[i], &val[i]);
       I[i]--;  /* adjust from 1-based to 0-based */
       J[i]--;
   }
