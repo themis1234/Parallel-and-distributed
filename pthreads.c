@@ -13,8 +13,8 @@ float step;
 
 void* parallel_for(void* arg){
   int input =*(int*)arg;
-  //Every Thread goes through a a "step" number of Nodes 
-  //The total nodes is thread_num*step so when this function is run by all threads it went through all Nodes
+  //Every Thread goes through a "step" number of Vetrices 
+  //The total nodes is thread_num*step so when this function is run by all threads it went through all Vetrices
   for(int i = (int)(input*step); i < (int)((input+1)*step);i++){
     if(colors[i]>-1){
       int start = csc[i];
