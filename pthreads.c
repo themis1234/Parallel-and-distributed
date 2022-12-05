@@ -13,6 +13,8 @@ float step;
 
 void* parallel_for(void* arg){
   int input =*(int*)arg;
+  //Every Thread goes through a a "step" number of Nodes 
+  //The total nodes is thread_num*step so when this function is run by all threads it went through all Nodes
   for(int i = (int)(input*step); i < (int)((input+1)*step);i++){
     if(colors[i]>-1){
       int start = csc[i];
@@ -21,7 +23,6 @@ void* parallel_for(void* arg){
       for(int j = start; j < end; j++){
         if(colors[i] > temp_colors[I[j]] && temp_colors[I[j]]>-1){
           colors[i] = temp_colors[I[j]];
-          //flag_parallel = true;
         }
       }
     }
@@ -186,11 +187,6 @@ int  main(int argc, char const *argv[]) {
   free(val);
 
   if (f !=stdin) fclose(f);
-
-  /************************/
-  /* now write out matrix */
-  /************************/
-
   mm_write_banner(stdout, matcode);
   mm_write_mtx_crd_size(stdout, M, N, nz);
 
